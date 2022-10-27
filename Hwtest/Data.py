@@ -4,7 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, CHAR, VARCHAR, Integer, String, Text, DateTime, Float, Boolean, PickleType
 
 Base = declarative_base()
-db_uri = 'sqlite:///HW1.sqlite3'
+db_uri = 'postgresql://webadmin:SALhsy91225@node36580-chalongrath.proen.app.ruk-com.cloud:5432/testdb'
 engine = create_engine(db_uri, echo=False)
 
 class Students(Base):
@@ -44,13 +44,13 @@ class Subjects(Base):
 class Teacher(Base):
     __tablename__ = 'Teachers' 
     teacher_id = Column(String(3),primary_key=True, nullable=True)
-    f_name = Column(String(50), nullable=True)
-    l_name = Column(String(30), nullable=True)
-    e_mail = Column(String(50), nullable=True)
+    tf_name = Column(String(50), nullable=True)
+    tl_name = Column(String(30), nullable=True)
+    te_mail = Column(String(50), nullable=True)
 
     def __repr__(self):
             return '<User(teacher_id = {} , f_name= {} , l_name = {} , e_mail = {})>'.format(self.teacher_id,\
-                    self.f_name, self.l_name , self.e_mail)
+                    self.tf_name, self.tl_name , self.te_mail)
 
 Base.metadata.drop_all(engine)
 Base.metadata.create_all(engine)
@@ -145,15 +145,15 @@ Subjects2 = Subjects(
 
 teacher1 = Teacher(
     teacher_id='AMK',
-    f_name='Anirach',
-    l_name='Mingkhwan',
-    e_mail='Anirach@gmail.com'
+    tf_name='Anirach',
+    tl_name='Mingkhwan',
+    te_mail='Anirach@gmail.com'
 )
 teacher2 = Teacher(
     teacher_id='WKN',
-    f_name='Watcharachai',
-    l_name='Kongsiriwattana',
-    e_mail='Watcharachai@gmail.com'
+    tf_name='Watcharachai',
+    tl_name='Kongsiriwattana',
+    te_mail='Watcharachai@gmail.com'
 )
 
 session.add_all([user1,user2,user3,regis1, regis11, regis2, regis22, regis3, regis33,Subjects1 ,Subjects2,teacher1,teacher2])

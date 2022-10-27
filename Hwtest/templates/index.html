@@ -8,6 +8,7 @@
 </head>
 <body bgcolor="ccffff">
     <table border="4" width="50%" align="center">
+        <tr>
             <th>student-id</th>
             <th>student-f_name</th>
             <th>student-l_name</th>
@@ -17,16 +18,16 @@
             <th>teacher-f_name</th>
             <th>teacher-l_name</th>
         </tr>
-        {% for row in test %}
+        {% for r in test %}
         <tr>
-          <td>{{ row[0] }}</td>
-          <td>{{ row[1] }}</td>
-          <td>{{ row[2] }}</td>
-          <td>{{ row[3] }}</td>
-          <td>{{ row[4] }}</td>
-          <td>{{ row[5] }}</td>
-          <td>{{ row[6] }}</td>
-          <td>{{ row[7] }}</td>
+          <td>{{ r.student_id }}</td>
+          <td>{{ r.f_name }}</td>
+          <td>{{ r.l_name }}</td>
+          <td>{{ r.sub_id }}</td>
+          <td>{{ r.subject_name }}</td>
+          <td>{{ r.grade }}</td>
+          <td>{{ r.tf_name }}</td>
+          <td>{{ row.tl_name }}</td>
         </tr>
       {% endfor %}
       </table>
